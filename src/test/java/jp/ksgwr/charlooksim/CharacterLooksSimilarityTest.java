@@ -1,5 +1,6 @@
 package jp.ksgwr.charlooksim;
 
+import javafx.scene.text.Font;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -26,24 +27,24 @@ public class CharacterLooksSimilarityTest {
 
         float sim = CharacterLooksSimilarity.calcSimilarity(a, b);
 
-        assertEquals(sim, 0.89f, 0.01f);
+        assertEquals(0.85f, sim, 0.01f);
 
         int[][] l = CharacterLooksSimilarity.createCharacterLooks("l");
         int[][] i = CharacterLooksSimilarity.createCharacterLooks("i");
 
         sim = CharacterLooksSimilarity.calcSimilarity(l, i);
 
-        assertEquals(sim, 0.98f, 0.01f);
+        assertEquals(0.94f, sim, 0.01f);
 
         int[][] I = CharacterLooksSimilarity.createCharacterLooks("I");
 
         sim = CharacterLooksSimilarity.calcSimilarity(l, I);
 
-        assertEquals(sim, 1.0f, 0.01f);
+        assertEquals(0.99f, sim, 0.01f);
 
         sim =  CharacterLooksSimilarity.calcSimilarity(l, l);
 
-        assertEquals(sim, 1.0f, 0.01f);
+        assertEquals(1.0f, sim, 0.01f);
 
     }
 }

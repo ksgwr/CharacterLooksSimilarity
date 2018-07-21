@@ -10,8 +10,10 @@ public class CharacterLooksSimilarity {
 
     public static final int BUF_HEIGHT = 24;
 
+    public static final Font DEFAULT_FONT = new Font("Serif", Font.PLAIN, 12);
+
     public static int[][] createCharacterLooks(String content) {
-        return createCharacterLooks(content, null);
+        return createCharacterLooks(content, DEFAULT_FONT);
     }
 
     public static int[][] createCharacterLooks(String content, Font font) {
@@ -21,9 +23,7 @@ public class CharacterLooksSimilarity {
     public static int[][] createCharacterLooks(String content, Font font, int bufWidth, int bufHeight) {
         BufferedImage bufferedImage = new BufferedImage(bufWidth, bufHeight, BufferedImage.TYPE_BYTE_GRAY);
         Graphics2D graphics = bufferedImage.createGraphics();
-        if (font != null) {
-            graphics.setFont(font);
-        }
+        graphics.setFont(font);
         FontMetrics fontMetrics = graphics.getFontMetrics();
 
         int width = fontMetrics.stringWidth(content);
@@ -75,8 +75,8 @@ public class CharacterLooksSimilarity {
 
         for (int i=0;i<lw.length;i++) {
             for(int j=0;j<lw[i].length;j++) {
-                if (cxStartX <= j && j <= cxEndX) {
-                    if (cxStartY <= i && i <= cxEndY) {
+                if (cxStartX <= j && j < cxEndX) {
+                    if (cxStartY <= i && i < cxEndY) {
                         // cross array
                         if (lw[i][j] != sw[i - cxStartY][j - cxStartX]) {
                             diff++;
