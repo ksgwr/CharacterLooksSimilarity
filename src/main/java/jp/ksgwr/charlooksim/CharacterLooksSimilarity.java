@@ -43,16 +43,7 @@ public class CharacterLooksSimilarity extends JComponent {
         }
         return charLooks;
     }
-
-    public static void main(String args[]) {
-        /**
-        JFrame mainFrame = new JFrame("Graphics demo");
-        mainFrame.getContentPane().add(new CharacterLooksSimilarity());
-        mainFrame.pack();
-        mainFrame.setVisible(true);
-        */
-
-    }
+    
 }
            
       
