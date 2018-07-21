@@ -1,23 +1,54 @@
 package jp.ksgwr.charlooksim;
 
-import javafx.scene.text.Font;
-import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 
 public class CharacterLooksSimilarityTest {
+
+    @Test
+    public void printcreateCharacterLooksTest() {
+        int[][] actual = CharacterLooksSimilarity.createCharacterLooks("あ");
+
+        for (int i = 0; i < actual.length; i++) {
+            for (int j = 0; j < actual[i].length; j++) {
+                System.out.print(actual[i][j] + ",");
+            }
+            System.out.println();
+        }
+    }
 
     @Test
     public void createCharacterLooksTest() {
         int[][] actual = CharacterLooksSimilarity.createCharacterLooks("y");
 
-        for (int i = 0; i < actual.length; i++) {
-            for (int j = 0; j < actual[i].length; j++) {
-                System.out.print(actual[i][j]);
-            }
-            System.out.println();
-        }
+        int[][] expected = new int[][]{
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {1, 1, 1, 0, 1, 1, 1},
+                {0, 1, 0, 0, 0, 1, 0},
+                {0, 1, 0, 0, 1, 0, 0},
+                {0, 0, 1, 0, 1, 0, 0},
+                {0, 0, 1, 0, 1, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0},
+                {0, 0, 1, 0, 0, 0, 0},
+                {1, 1, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0, 0, 0},
+        };
+
+        assertArrayEquals(expected, actual);
+
     }
 
     @Test
@@ -42,7 +73,7 @@ public class CharacterLooksSimilarityTest {
 
         assertEquals(0.99f, sim, 0.01f);
 
-        sim =  CharacterLooksSimilarity.calcSimilarity(l, l);
+        sim = CharacterLooksSimilarity.calcSimilarity(l, l);
 
         assertEquals(1.0f, sim, 0.01f);
 
