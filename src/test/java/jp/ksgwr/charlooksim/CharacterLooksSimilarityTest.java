@@ -2,6 +2,8 @@ package jp.ksgwr.charlooksim;
 
 import org.junit.Test;
 
+import java.awt.Font;
+
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +11,8 @@ public class CharacterLooksSimilarityTest {
 
     @Test
     public void printcreateCharacterLooksTest() {
+        Font font = new Font("IPAGothic", Font.PLAIN, 12);
+
         int[][] actual = CharacterLooksSimilarity.createCharacterLooks("あ");
 
         for (int i = 0; i < actual.length; i++) {
@@ -24,27 +28,27 @@ public class CharacterLooksSimilarityTest {
         int[][] actual = CharacterLooksSimilarity.createCharacterLooks("y");
 
         int[][] expected = new int[][]{
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {1, 1, 1, 0, 1, 1, 1},
-                {0, 1, 0, 0, 0, 1, 0},
-                {0, 1, 0, 0, 1, 0, 0},
-                {0, 0, 1, 0, 1, 0, 0},
-                {0, 0, 1, 0, 1, 0, 0},
-                {0, 0, 0, 1, 0, 0, 0},
-                {0, 0, 0, 1, 0, 0, 0},
-                {0, 0, 1, 0, 0, 0, 0},
-                {1, 1, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0, 0},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {1, 0, 0, 0, 1,},
+                {1, 0, 0, 0, 1,},
+                {0, 1, 0, 1, 0,},
+                {0, 1, 0, 1, 0,},
+                {0, 1, 0, 1, 0,},
+                {0, 0, 1, 0, 0,},
+                {0, 0, 1, 0, 0,},
+                {0, 0, 1, 0, 0,},
+                {0, 1, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,},
+                {0, 0, 0, 0, 0,}
         };
 
         assertArrayEquals(expected, actual);
@@ -58,14 +62,14 @@ public class CharacterLooksSimilarityTest {
 
         float sim = CharacterLooksSimilarity.calcSimilarity(a, b);
 
-        assertEquals(0.85f, sim, 0.01f);
+        assertEquals(0.89f, sim, 0.01f);
 
         int[][] l = CharacterLooksSimilarity.createCharacterLooks("l");
         int[][] i = CharacterLooksSimilarity.createCharacterLooks("i");
 
         sim = CharacterLooksSimilarity.calcSimilarity(l, i);
 
-        assertEquals(0.94f, sim, 0.01f);
+        assertEquals(0.98f, sim, 0.01f);
 
         int[][] I = CharacterLooksSimilarity.createCharacterLooks("I");
 

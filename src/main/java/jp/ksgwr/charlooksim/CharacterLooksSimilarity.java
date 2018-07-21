@@ -10,7 +10,7 @@ public class CharacterLooksSimilarity {
 
     public static final int BUF_HEIGHT = 24;
 
-    public static final Font DEFAULT_FONT = new Font("Serif", Font.PLAIN, 12);
+    public static final Font DEFAULT_FONT = new Font(Font.SANS_SERIF, Font.PLAIN, 12);
 
     public static int[][] createCharacterLooks(String content) {
         return createCharacterLooks(content, DEFAULT_FONT);
@@ -28,15 +28,14 @@ public class CharacterLooksSimilarity {
 
         int width = fontMetrics.stringWidth(content);
         int height = fontMetrics.getMaxAscent();
-        int startX = (bufWidth - width) / 2;
         int maxY = height + fontMetrics.getMaxDescent();
 
-        graphics.drawString(content, startX, height);
+        graphics.drawString(content, 0, height);
 
         int[][] charLooks = new int[maxY][width];
         for (int i = 0; i < charLooks.length; i++) {
             for (int j = 0; j < charLooks[i].length; j++) {
-                charLooks[i][j] = bufferedImage.getRGB(j + startX, i) == -1 ? 1 : 0;
+                charLooks[i][j] = bufferedImage.getRGB(j, i) == -1 ? 1 : 0;
             }
         }
         return charLooks;
