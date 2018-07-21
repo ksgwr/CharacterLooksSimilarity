@@ -1,13 +1,11 @@
 package jp.ksgwr.charlooksim;
 
-import java.awt.*;
+import java.awt.Font;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-
-public class CharacterLooksSimilarity extends JComponent {
+public class CharacterLooksSimilarity {
     public static final int BUF_WIDTH = 100;
 
     public static final int BUF_HEIGHT = 24;
@@ -43,7 +41,7 @@ public class CharacterLooksSimilarity extends JComponent {
         }
         return charLooks;
     }
-    
+
 }
            
       

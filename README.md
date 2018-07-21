@@ -1,1 +1,1 @@
-# CharacterLooksSimilarity
+# CharacterLooksSimilarity [![Build Status](https://travis-ci.org/ksgwr/CharacterLooksSimilarity.svg?branch=master)](https://travis-ci.org/ksgwr/CharacterLooksSimilarity)
