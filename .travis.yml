@@ -1,1 +1,6 @@
 language: java
+sudo: false
+addons:
+  apt:
+    packages:
+    - fonts-ipafont-gothic
