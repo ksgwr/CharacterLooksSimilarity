@@ -44,32 +44,6 @@ public class CharacterLooksSimilarityTest {
     }
 
     @Test
-    public void createCharacterLooksTest() {
-        int[][] actual = CharacterLooksSimilarity.createCharacterLooks("y", FONT);
-
-        printCharacter(actual);
-
-        int[][] expected = new int[][]{
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0},
-                {0, 1, 0, 0, 1, 0},
-                {0, 1, 0, 0, 1, 0},
-                {0, 0, 1, 0, 1, 0},
-                {0, 0, 1, 1, 0, 0},
-                {0, 0, 0, 1, 0, 0},
-                {0, 0, 1, 0, 0, 0},
-                {0, 1, 1, 0, 0, 0},
-                {0, 0, 0, 0, 0, 0}
-        };
-
-        //assertArrayEquals(expected, actual);
-
-    }
-
-    @Test
     public void calcSimilarityTest() {
         int[][] a = CharacterLooksSimilarity.createCharacterLooks("a", FONT);
         int[][] b = CharacterLooksSimilarity.createCharacterLooks("b", FONT);
